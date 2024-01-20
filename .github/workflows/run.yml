@@ -3,13 +3,14 @@ name: 'GitHub Actions CloudFlare2DNSPod Bot'
 on:
   push:
     branches: 
-      - master
+      - main
   schedule:
-    - cron: '*/16 * * * *'
+    - cron: '*/30 * * * *'
+  workflow_dispatch: 
 
 env:
   UPDATE_IPV4: true
-  UPDATE_IPV6: false
+  UPDATE_IPV6: true
 jobs:
   build:
     runs-on: ubuntu-latest
