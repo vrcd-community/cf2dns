@@ -30,6 +30,9 @@ jobs:
           DOMAINS: ${{ secrets.DOMAINS }}
           SECRETID: ${{ secrets.SECRETID }}
           SECRETKEY: ${{ secrets.SECRETKEY }}
+          AFFECT_NUM: ${{ secrets.AFFECT_NUM }}
+          DNS_SERVER: ${{ secrets.DNS_SERVER }}
+          TTL: ${{ secrets.TTL }}
         run: python cf2dns_actions.py A
       - name: 'run cf2dns v6'
         if: env.UPDATE_IPV6 == 'true' && !cancelled()
@@ -38,4 +41,7 @@ jobs:
           DOMAINS: ${{ secrets.DOMAINSV6 }}
           SECRETID: ${{ secrets.SECRETID }}
           SECRETKEY: ${{ secrets.SECRETKEY }}
+          AFFECT_NUM: ${{ secrets.AFFECT_NUM }}
+          DNS_SERVER: ${{ secrets.DNS_SERVER }}
+          TTL: ${{ secrets.TTL }}
         run: python cf2dns_actions.py AAAA
