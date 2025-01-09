@@ -19,15 +19,15 @@ DOMAINS = json.loads(os.environ["DOMAINS"])  #{"hostmonit.com": {"@": ["CM","CU"
 SECRETID = os.environ["SECRETID"]    #'AKIDV**********Hfo8CzfjgN'
 SECRETKEY = os.environ["SECRETKEY"]   #'ZrVs*************gqjOp1zVl'
 #默认为普通版本 不用修改
-AFFECT_NUM = os.environ["AFFECT_NUM"]
+AFFECT_NUM = int(os.environ["AFFECT_NUM"])
 #DNS服务商 如果使用DNSPod改为1 如果使用阿里云解析改成2  如果使用华为云解析改成3
-DNS_SERVER = os.environ["DNS_SERVER"]
+DNS_SERVER = int(os.environ["DNS_SERVER"])
 #如果试用华为云解析 需要从API凭证-项目列表中获取
 REGION_HW = 'cn-east-3'
 #如果使用阿里云解析 REGION出现错误再修改 默认不需要修改 https://help.aliyun.com/document_detail/198326.html
 REGION_ALI = 'cn-hongkong'
 #解析生效时间，默认为600秒 如果不是DNS付费版用户 不要修改!!!
-TTL = os.environ["TTL"]
+TTL = int(os.environ["TTL"])
 #v4为筛选出IPv4的IP  v6为筛选出IPv6的IP
 if len(sys.argv) >= 2:
     RECORD_TYPE = sys.argv[1]
